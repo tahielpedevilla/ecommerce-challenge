@@ -1,0 +1,117 @@
+$orange: hsl(26, 100%, 55%);
+$paleorange: hsl(25, 100%, 94%);
+$lighGrayishBlue: hsl(223, 64%, 98%);
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease-out;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.125);
+    transition: all 0.15s ease-out;
+  }
+
+  .image {
+    img {
+      border-radius: 10px 10px 0 0;
+      width: 100%;
+    }
+  }
+
+  .details {
+    padding: 20px;
+
+    .details-card-model {
+      color: #000;
+    }
+
+    .price-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .row-price {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+
+        .details-card-currentPrice {
+          color: #000;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .details-card-off {
+          color: $orange;
+          background-color: $paleorange;
+          font-size: 14px;
+          border-radius: 8px;
+          font-weight: 700;
+          padding: 1px 6px;
+        }
+      }
+
+      .details-card-oldPrice {
+        color: #bbb;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 5px auto 0;
+
+    .see-more {
+      align-items: center;
+      background-color: $paleorange;
+      cursor: pointer;
+      color: $orange;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      flex-direction: row;
+      padding: 5px 0;
+      width: 100%;
+      border: none;
+      outline: 1px solid $orange;
+      border-radius: 10px;
+
+      &:hover,
+      &:active {
+        opacity: 0.75;
+        box-shadow: 0px 4px 12px 8px $paleorange;
+      }
+    }
+
+    .add-to-cart {
+      align-items: center;
+      background-color: $orange;
+      cursor: pointer;
+      color: #fff;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      flex-direction: row;
+      padding: 5px 0;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+
+      &:hover,
+      &:active {
+        opacity: 0.75;
+        box-shadow: 0px 4px 12px 8px $paleorange;
+      }
+    }
+  }
+}

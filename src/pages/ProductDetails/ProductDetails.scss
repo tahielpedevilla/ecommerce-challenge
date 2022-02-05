@@ -1,0 +1,123 @@
+$orange: hsl(26, 100%, 55%);
+$paleorange: hsl(25, 100%, 94%);
+$lighGrayishBlue: hsl(223, 64%, 98%);
+
+.product-details {
+  padding: 20px;
+
+  .brand {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    color: $orange;
+  }
+
+  .model {
+    color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-top: 10px;
+    letter-spacing: -.3px;
+  }
+
+  .description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .price {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .current-price {
+      color: #000;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .off {
+      color: $orange;
+      background-color: $paleorange;
+      border-radius: 8px;
+      font-weight: 700;
+      padding: 1px 8px;
+    }
+
+    .old-price {
+      color: #bbb;
+      text-decoration: line-through;
+      font-weight: 700;
+    }
+  }
+
+  .quantity {
+    align-items: center;
+    background-color: $lighGrayishBlue;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 20px;
+    font-weight: 700;
+    justify-content: space-between;
+    padding: 5px 20px;
+
+    button {
+      cursor: pointer;
+      padding-bottom: 5px;
+      background: none;
+      border: none;
+      color: $orange;
+      font-size: 28px;
+      font-weight: 700;
+
+      &:hover,
+      &:active {
+        opacity: .75;
+        filter: drop-shadow(0 0 75rem $orange);
+      }
+    }
+  }
+
+  .add-to-cart {
+    align-items: center;
+    background-color: $orange;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    flex-direction: row;
+    padding: 15px 20px;
+    width: 100%;
+    margin: 15px auto;
+    border: none;
+    border-radius: 10px;
+    gap: 10px;
+
+    img {
+      height: 16px;
+    }
+
+    &:hover,
+    &:active {
+      opacity: .75;
+      box-shadow: 0px 4px 12px 8px $paleorange;
+    }
+
+  }
+}
