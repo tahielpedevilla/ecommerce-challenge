@@ -3,7 +3,9 @@ import {useContext} from "react";
 import {CartContext} from "../context/CartContext";
 
 export const useCart = () => {
-  const {increment, decrement, remove, add, clearCart, handleCheckout} = useContext(CartContext);
+  const context = useContext(CartContext);
 
-  return {increment, decrement, remove, add, clearCart, handleCheckout};
+  return {
+    ...context,
+  };
 };

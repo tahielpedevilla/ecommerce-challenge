@@ -1,34 +1,36 @@
-const storage = () =>
-  window.localStorage.setItem("cartItems", JSON.stringify(state.cartItems) || "[]");
+const storage = (cartItems) =>
+  window.localStorage.setItem("cart", JSON.stringify(cartItems.length > 0 ? cartItems : []));
 
 export const sumItems = (cartItems) => {
   storage(cartItems);
 
   return {
     cartItems,
-    total: cartItems.reduce((acc, item) => acc + item.price, 0),
-    totalItems: cartItems.reduce((acc, item) => acc + item.quantity, 0),
+    total: 2,
+    totalItems: 3,
   };
 };
 
 export const CartReducer = (state, action) => {
+  let cartItems = [...state.cartItems];
+  let product = cartItems.find((item) => item.id === action.payload.id);
+
   switch (action.type) {
     case "ADD":
-      if (state.cartItems.find((item) => item.id === action.payload.id)) {
-        state.cartItems.push({
-          ...action.payload,
-          quantity: 1,
-        });
+      if (cartItems.filter((item) => item.id === action.payload.id).length > 0) {
+        return {
+          ...sumItems(
+            state.cartItems.map((item) =>
+              item.id === action.payload.id ? {...item, quantity: item.quantity + 1} : item,
+            ),
+          ),
+        };
       }
 
       return {
-        ...state,
-        ...sumItems(...state.cartItems),
-        cartItems: [...state.cartItems],
+        ...sumItems([...state.cartItems, action.payload]),
       };
     case "REMOVE":
-      cartItems = [...state.cartItems];
-      product = cartItems.find((item) => item.id === action.payload.id);
       cartItems.splice(cartItems.indexOf(product), 1);
 
       return {
@@ -36,8 +38,10 @@ export const CartReducer = (state, action) => {
         cartItems,
       };
     case "INCREMENT":
-      let cartItems = [...state.cartItems];
-      let product = cartItems.find((item) => item.id === action.payload.id);
+      cartItems = [...state.cartItems];
+      console.log(cartItems);
+      product = cartItems.find((item) => item.id === action.payload.id);
+      console.log(product);
 
       product.quantity += 1;
 

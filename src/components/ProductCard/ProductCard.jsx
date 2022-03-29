@@ -1,34 +1,39 @@
 import "./ProductCard.scss";
-import {useCart} from "../../hooks/useCart";
+import {Link} from "react-router-dom";
 
-const formatPrice = (price) => {
-  return price.toLocaleString("en-AR", {
-    style: "currency",
-    currency: "ARS",
-  });
-};
+import {useCart} from "../../hooks/useCart";
+import {formatter, urlFormatter} from "../../helpers/utils";
 
 const ProductCard = ({product}) => {
-  const {add} = useCart();
+  const {add, increment, cartItems} = useCart();
+  const addProduct = () => add(product);
+  const incrementProduct = () => increment(product);
+
+  const isInCart = (product) => cartItems.find((item) => item.id === product.id);
 
   return (
     <div className="card">
       <div className="image">
-        <img alt={product.model} src={product.images[1]} />
+        <img alt={product.model} src={product.images[0]} />
       </div>
       <div className="details">
         <h4 className="details-card-model">{product.model}</h4>
         <div className="price-container">
           <div className="row-price">
-            <p className="details-card-currentPrice">{formatPrice(product.price)}</p>
+            <p className="details-card-currentPrice">{formatter(product.price)}</p>
             <p className="details-card-off">{product.off + "%"}</p>
           </div>
-          <p className="details-card-oldPrice">{formatPrice(product.oldPrice)}</p>
+          <p className="details-card-oldPrice">{formatter(product.oldPrice)}</p>
         </div>
         <div className="buttons">
-          <button className="see-more">Details</button>
-          <button className="add-to-cart" onClick={() => add(product)}>
-            Add to Cart
+          <button className="see-more">
+            <Link to={urlFormatter(`/product/${product.model}`)}>Details</Link>
+          </button>
+          <button
+            className="add-to-cart"
+            onClick={isInCart(product) ? incrementProduct : addProduct}
+          >
+            {isInCart(product) ? "Add more" : "Add to cart"}
           </button>
         </div>
       </div>

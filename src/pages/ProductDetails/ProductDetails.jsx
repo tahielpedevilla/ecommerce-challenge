@@ -1,18 +1,21 @@
 import "./ProductDetails.scss";
+import {useState} from "react";
+
 import Carrousel from "../../components/Carrousel/Carrousel";
 import iconCart from "../../assets/icon-cart-white.svg";
 import {useCart} from "../../hooks/useCart";
-
-const formatPrice = (price) => {
-  return price.toLocaleString("en-AR", {
-    style: "currency",
-    currency: "ARS",
-  });
-};
+import {formatter} from "../../helpers/utils";
 
 const ProductDetails = ({product}) => {
   const {add, increment, decrement} = useCart();
-  const [quantity, setQuantity] = useState(product.quantity);
+  const initialState = product.quantity;
+  const [quantity, setQuantity] = useState(initialState);
+
+  const handleAdd = () => {
+    add(product);
+    increment(product.id);
+    setQuantity(quantity + 1);
+  };
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -33,17 +36,17 @@ const ProductDetails = ({product}) => {
         <p className="description">{product.description}</p>
         <div className="price">
           <div>
-            <p className="current-price">{formatPrice(product.price)}</p>
+            <p className="current-price">{formatter(product.price)}</p>
             <p className="off">{product.off + "%"}</p>
           </div>
-          <p className="old-price">{formatPrice(product.oldPrice)}</p>
+          <p className="old-price">{formatter(product.oldPrice)}</p>
         </div>
         <div className="quantity">
           <button onClick={handleDecrement}>-</button>
           <p>{quantity}</p>
           <button onClick={handleIncrement}>+</button>
         </div>
-        <button className="add-to-cart" onClick={() => add(product)}>
+        <button className="add-to-cart" onClick={handleAdd}>
           <img alt="Icon Cart" src={iconCart} />
           <span>Add to cart</span>
         </button>

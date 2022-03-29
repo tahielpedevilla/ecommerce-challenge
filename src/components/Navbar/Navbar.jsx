@@ -9,7 +9,6 @@ import logo from "../../assets/logo.svg";
 import iconMenu from "../../assets/icon-menu.svg";
 import iconClose from "../../assets/icon-close.svg";
 import Cart from "../Cart/Cart";
-import product from "../../mock.json";
 
 const Navbar = () => {
   const cart = useVisibility();
@@ -17,15 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      {cart.isVisible && (
-        <Cart
-          id={product.id}
-          imageThumbnail={product.thumbnail[1]}
-          model={product.model}
-          price={product.price}
-          quantitySelected={product.quantity}
-        />
-      )}
+      {cart.isVisible && <Cart />}
       {sidebar.isVisible && (
         <div className="sidebar" id="sidebar">
           <div className="sidebar-menu">

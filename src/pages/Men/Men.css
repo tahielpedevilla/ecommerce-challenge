@@ -1,0 +1,28 @@
+.products {
+  margin: auto;
+  padding: 20px;
+}
+
+.products .title {
+  padding: 20px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.products .title h1 {
+  font-size: 28px;
+}
+
+.products .title p {
+  font-size: 14px;
+  color: #999;
+}
+
+.products .products-grid {
+  margin: 20px 0;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 20px;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+/*# sourceMappingURL=Men.css.map */

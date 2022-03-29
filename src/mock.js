@@ -1,4 +1,4 @@
-export const data = [
+const mock = [
   {
     id: 1,
     model: "Fall Limited Edition Snakers",
@@ -15,7 +15,7 @@ export const data = [
       "src/assets/image-product-3.jpg",
       "src/assets/image-product-4.jpg",
     ],
-    thumbnail: [
+    thumbnails: [
       "src/assets/image-product-1-thumbnail.jpg",
       "src/assets/image-product-2-thumbnail.jpg",
       "src/assets/image-product-3-thumbnail.jpg",
@@ -38,7 +38,7 @@ export const data = [
       "src/assets/image-product-3.jpg",
       "src/assets/image-product-4.jpg",
     ],
-    thumbnail: [
+    thumbnails: [
       "src/assets/image-product-1-thumbnail.jpg",
       "src/assets/image-product-2-thumbnail.jpg",
       "src/assets/image-product-3-thumbnail.jpg",
@@ -61,7 +61,7 @@ export const data = [
       "src/assets/image-product-3.jpg",
       "src/assets/image-product-4.jpg",
     ],
-    thumbnail: [
+    thumbnails: [
       "src/assets/image-product-1-thumbnail.jpg",
       "src/assets/image-product-2-thumbnail.jpg",
       "src/assets/image-product-3-thumbnail.jpg",
@@ -84,7 +84,7 @@ export const data = [
       "src/assets/image-product-3.jpg",
       "src/assets/image-product-4.jpg",
     ],
-    thumbnail: [
+    thumbnails: [
       "src/assets/image-product-1-thumbnail.jpg",
       "src/assets/image-product-2-thumbnail.jpg",
       "src/assets/image-product-3-thumbnail.jpg",
@@ -92,3 +92,5 @@ export const data = [
     ],
   },
 ];
+
+export default mock;

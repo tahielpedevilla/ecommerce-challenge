@@ -6,16 +6,18 @@ import "swiper/css/navigation";
 
 SwiperCore.use([Navigation]);
 
-const Carrousel = ({product}) => (
-  <>
-    <Swiper className="mySwiper" navigation={true}>
-      {product.images.map((image, i) => (
-        <SwiperSlide key={i}>
-          <img src={image} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </>
-);
+const Carrousel = ({product}) => {
+  return (
+    <>
+      <Swiper className="mySwiper" navigation={true}>
+        {product.images.map((image, i) => (
+          <SwiperSlide key={i}>
+            <img src={image} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
+  );
+};
 
 export default Carrousel;

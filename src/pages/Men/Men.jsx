@@ -1,8 +1,10 @@
 import "./Men.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import {data as products} from "../../products";
+import {useProducts} from "../../hooks/useProducts";
 
 const Men = () => {
+  const {products} = useProducts();
+
   return (
     <>
       <section className="products">

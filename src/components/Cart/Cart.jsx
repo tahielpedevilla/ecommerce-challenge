@@ -1,42 +1,9 @@
 import "./Cart.scss";
 
-import iconDelete from "../../assets/icon-delete.svg";
+import CartItem from "../CartItem/CartItem";
 import {useCart} from "../../hooks/useCart";
 
-const formatPrice = (price) => {
-  return price.toLocaleString("en-AR", {
-    style: "currency",
-    currency: "ARS",
-  });
-};
-
-const ProductCart = ({product}) => {
-  const {removeProduct} = useCart();
-  const total = product.quantitySelected * formatPrice(product.price);
-
-  return (
-    <div className="product-cart">
-      <div className="left">
-        <img alt={product.model} className="thumbnail-img" src={product.imageThumbnail} />
-        <div className="product-description">
-          <p className="model">{product.model}</p>
-          <div className="price-container">
-            <div className="price">
-              <p className="actual">{formatPrice(product.price)}</p>
-              <p className="quantity">{"x" + product.quantitySelected}</p>
-            </div>
-            <p className="total">{total}</p>
-          </div>
-        </div>
-      </div>
-      <div className="right">
-        <img alt="Icon Delete" src={iconDelete} onClick={() => removeProduct(product)} />
-      </div>
-    </div>
-  );
-};
-
-const Cart = ({quantitySelected}) => {
+const Cart = () => {
   const {cartItems} = useCart();
 
   return (
@@ -46,10 +13,10 @@ const Cart = ({quantitySelected}) => {
           <p className="title">Cart</p>
           <div className="divider" />
 
-          {quantitySelected > 0 ? (
+          {cartItems.length > 0 ? (
             <>
-              {cartItems.map((product) => (
-                <ProductCart key={product.id} product={product} />
+              {cartItems.map((product, i) => (
+                <CartItem key={i} product={product} />
               ))}
               <div className="checkout">
                 <button className="btn-checkout">Checkout</button>

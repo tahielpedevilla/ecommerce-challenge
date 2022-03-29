@@ -12,7 +12,7 @@ import NotFound from "./pages/NotFound/NotFound";
 const MainRouter = () => (
   <Routes>
     <Route exact element={<Home />} path="/" />
-    <Route element={<ProductDetails />} path="product?${id}" />
+    <Route element={<ProductDetails />} path="product/:id" />
     <Route element={<Collections />} path="collections" />
     <Route element={<Men />} path="men" />
     <Route element={<Women />} path="women" />
