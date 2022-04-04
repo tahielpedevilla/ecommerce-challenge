@@ -4,6 +4,7 @@ import {useProducts} from "../../hooks/useProducts";
 
 const Men = () => {
   const {products} = useProducts();
+  const filteredProducts = products.filter((product) => product.category === "Men");
 
   return (
     <>
@@ -13,7 +14,7 @@ const Men = () => {
           <p>Only for men or not</p>
         </div>
         <div className="products-grid">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

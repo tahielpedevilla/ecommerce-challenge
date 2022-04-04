@@ -1,35 +1,34 @@
-const storage = (cartItems) =>
+const storage = (cartItems) => {
   window.localStorage.setItem("cart", JSON.stringify(cartItems.length > 0 ? cartItems : []));
+};
 
 export const sumItems = (cartItems) => {
   storage(cartItems);
+  let itemCount = cartItems.reduce((total, product) => total + product.quantity, 0);
+  let total = cartItems
+    .reduce((total, product) => total + product.price * product.quantity, 0)
+    .toFixed(2);
 
-  return {
-    cartItems,
-    total: 2,
-    totalItems: 3,
-  };
+  return {itemCount, total};
 };
 
 export const CartReducer = (state, action) => {
   let cartItems = [...state.cartItems];
-  let product = cartItems.find((item) => item.id === action.payload.id);
+  let product;
 
   switch (action.type) {
     case "ADD":
-      if (cartItems.filter((item) => item.id === action.payload.id).length > 0) {
-        return {
-          ...sumItems(
-            state.cartItems.map((item) =>
-              item.id === action.payload.id ? {...item, quantity: item.quantity + 1} : item,
-            ),
-          ),
-        };
+      product = cartItems.find((item) => item.id === action.payload.id);
+      if (!product) {
+        state.cartItems.push({...action.payload, quantity: 1});
       }
 
       return {
+        ...state,
         ...sumItems([...state.cartItems, action.payload]),
+        cartItems: [...state.cartItems],
       };
+
     case "REMOVE":
       cartItems.splice(cartItems.indexOf(product), 1);
 
@@ -39,11 +38,9 @@ export const CartReducer = (state, action) => {
       };
     case "INCREMENT":
       cartItems = [...state.cartItems];
-      console.log(cartItems);
       product = cartItems.find((item) => item.id === action.payload.id);
-      console.log(product);
 
-      product.quantity += 1;
+      product.quantity++;
 
       return {
         ...sumItems(cartItems),
@@ -52,7 +49,7 @@ export const CartReducer = (state, action) => {
     case "DECREMENT":
       cartItems = [...state.cartItems];
       product = cartItems.find((item) => item.id === action.payload.id);
-      product.quantity -= 1;
+      product.quantity--;
 
       return {
         ...sumItems(cartItems),

@@ -17,17 +17,19 @@ const ProductCard = ({product}) => {
         <img alt={product.model} src={product.images[0]} />
       </div>
       <div className="details">
-        <h4 className="details-card-model">{product.model}</h4>
-        <div className="price-container">
-          <div className="row-price">
-            <p className="details-card-currentPrice">{formatter(product.price)}</p>
-            <p className="details-card-off">{product.off + "%"}</p>
+        <div className="card-header">
+          <h4 className="details-card-model">{product.model}</h4>
+          <div className="price-container">
+            <div className="row-price">
+              <p className="details-card-currentPrice">{formatter(product.price)}</p>
+              <p className="details-card-off">{product.off + "%"}</p>
+            </div>
+            <p className="details-card-oldPrice">{formatter(product.oldPrice)}</p>
           </div>
-          <p className="details-card-oldPrice">{formatter(product.oldPrice)}</p>
         </div>
         <div className="buttons">
           <button className="see-more">
-            <Link to={urlFormatter(`/product/${product.model}`)}>Details</Link>
+            <Link to={urlFormatter(`/product/${product.id}`)}>Details</Link>
           </button>
           <button
             className="add-to-cart"

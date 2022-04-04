@@ -23,43 +23,49 @@ $lighGrayishBlue: hsl(223, 64%, 98%);
   }
 
   .details {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+    height: 126px;
 
-    .details-card-model {
-      color: #000;
-    }
-
-    .price-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .row-price {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-
-        .details-card-currentPrice {
-          color: #000;
-          font-size: 24px;
-          font-weight: 700;
-        }
-
-        .details-card-off {
-          color: $orange;
-          background-color: $paleorange;
-          font-size: 14px;
-          border-radius: 8px;
-          font-weight: 700;
-          padding: 1px 6px;
-        }
+    .card-header {
+      .details-card-model {
+        color: #000;
       }
-
-      .details-card-oldPrice {
-        color: #bbb;
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: line-through;
+  
+      .price-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        .row-price {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+  
+          .details-card-currentPrice {
+            color: #000;
+            font-size: 24px;
+            font-weight: 700;
+          }
+  
+          .details-card-off {
+            color: $orange;
+            background-color: $paleorange;
+            font-size: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            padding: 1px 6px;
+          }
+        }
+  
+        .details-card-oldPrice {
+          color: #bbb;
+          font-size: 14px;
+          font-weight: 700;
+          text-decoration: line-through;
+        }
       }
     }
   }
@@ -70,6 +76,7 @@ $lighGrayishBlue: hsl(223, 64%, 98%);
     align-items: center;
     gap: 10px;
     margin: 5px auto 0;
+    width: 100%;
 
     .see-more {
       align-items: center;

@@ -4,7 +4,11 @@ import CartItem from "../CartItem/CartItem";
 import {useCart} from "../../hooks/useCart";
 
 const Cart = () => {
-  const {cartItems} = useCart();
+  const {cartItems, handleCheckout, total, itemCount} = useCart();
+
+  const handleCheckoutClick = () => {
+    handleCheckout();
+  };
 
   return (
     <>
@@ -19,7 +23,11 @@ const Cart = () => {
                 <CartItem key={i} product={product} />
               ))}
               <div className="checkout">
-                <button className="btn-checkout">Checkout</button>
+                <button xclassName="btn-checkout" onClick={handleCheckoutClick}>
+                  Checkout
+                </button>
+                <p>Total: {total}</p>
+                <p>Items: {itemCount}</p>
               </div>
             </>
           ) : (

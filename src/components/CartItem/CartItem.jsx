@@ -1,7 +1,8 @@
 import "./CartItem.scss";
 
-import iconMinus from "../../assets/icon-minus.svg";
-import iconPlus from "../../assets/icon-plus.svg";
+import iconDelete from "../../assets/icon-delete-cart.svg";
+import iconMinus from "../../assets/icon-minus-cart.svg";
+import iconPlus from "../../assets/icon-plus-cart.svg";
 import {useCart} from "../../hooks/useCart";
 import {formatter} from "../../helpers/utils";
 
@@ -24,16 +25,18 @@ const CartItem = ({product}) => {
               <p className="actual">{formatter(product.price)}</p>
               <p className="quantity">{"x" + product.quantity}</p>
             </div>
-            <p className="total">{totalItem}</p>
+            <p>|</p>
+            <p className="total">{formatter(totalItem)}</p>
           </div>
         </div>
       </div>
       <div className="right">
         <img
-          alt="Delete"
-          src={iconMinus}
+          alt="Decrement"
+          src={product.quantity >= 2 ? iconMinus : iconDelete}
           onClick={product.quantity > 1 ? decrementProduct : removeProduct}
         />
+        <span className="quantity">{product.quantity}</span>
         <img
           alt="Increase"
           className="cart-increase-icon"

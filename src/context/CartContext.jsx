@@ -21,8 +21,10 @@ const CartProvider = ({children}) => {
 
   const clearCart = () => dispatch({type: "CLEAR_CART"});
 
-  const handleCheckout = () => dispatch({type: "HANDLE_CHECKOUT"});
-
+  const handleCheckout = () => {
+    console.table("CHECKOUT", state);
+    dispatch({type: "HANDLE_CHECKOUT"});
+  };
   const contextValues = {
     add,
     remove,
