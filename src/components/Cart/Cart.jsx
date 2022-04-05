@@ -1,4 +1,4 @@
-import "./Cart.scss";
+import "./Cart.css";
 
 import CartItem from "../CartItem/CartItem";
 import {useCart} from "../../hooks/useCart";
@@ -23,7 +23,7 @@ const Cart = () => {
                 <CartItem key={i} product={product} />
               ))}
               <div className="checkout">
-                <button xclassName="btn-checkout" onClick={handleCheckoutClick}>
+                <button className="btn-checkout" onClick={handleCheckoutClick}>
                   Checkout
                 </button>
                 <p>Total: {total}</p>

@@ -1,8 +1,8 @@
 import "./CartItem.scss";
 
-import iconDelete from "../../assets/icon-delete-cart.svg";
-import iconMinus from "../../assets/icon-minus-cart.svg";
-import iconPlus from "../../assets/icon-plus-cart.svg";
+import iconDelete from "../../public/assets/icon-delete-cart.svg";
+import iconMinus from "../../public/assets/icon-minus-cart.svg";
+import iconPlus from "../../public/assets/icon-plus-cart.svg";
 import {useCart} from "../../hooks/useCart";
 import {formatter} from "../../helpers/utils";
 
@@ -17,7 +17,7 @@ const CartItem = ({product}) => {
   return (
     <div className="cart-item">
       <div className="left">
-        <img alt={product.model} className="thumbnail-img" src={product.images[3]} />
+        <img alt={product.model} className="thumbnail-img" src={product.thumbnails[1]} />
         <div className="product-description">
           <p className="model">{product.model}</p>
           <div className="price-container">

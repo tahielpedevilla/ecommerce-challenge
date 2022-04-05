@@ -1,4 +1,4 @@
-import "./ProductCard.scss";
+import "./ProductCard.css";
 import {Link} from "react-router-dom";
 
 import {useCart} from "../../hooks/useCart";

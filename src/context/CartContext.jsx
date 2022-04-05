@@ -4,7 +4,7 @@ import {CartReducer, sumItems} from "./CartReducer";
 
 export const CartContext = createContext();
 
-const storage = window.localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+const storage = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
 const initialState = {cartItems: storage, ...sumItems(storage), checkout: false};
 

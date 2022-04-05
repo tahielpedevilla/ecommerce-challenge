@@ -1,31 +1,25 @@
 import "./ProductDetails.scss";
-import {useState} from "react";
+
+import {useParams} from "react-router-dom";
 
 import Carrousel from "../../components/Carrousel/Carrousel";
-import iconCart from "../../assets/icon-cart-white.svg";
+import iconCart from "../../public/assets/icon-cart-white.svg";
 import {useCart} from "../../hooks/useCart";
 import {formatter} from "../../helpers/utils";
+import {useProducts} from "../../hooks/useProducts";
 
-const ProductDetails = ({product}) => {
-  const {add, increment, decrement} = useCart();
-  const initialState = product.quantity;
-  const [quantity, setQuantity] = useState(initialState);
+const ProductDetails = () => {
+  const {id} = useParams();
+  const {products} = useProducts();
+  const product = products.find((product) => product.id === Number(id));
 
-  const handleAdd = () => {
-    add(product);
-    increment(product.id);
-    setQuantity(quantity + 1);
-  };
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
+  const {add, increment, cartItems} = useCart();
+  const addProduct = () => add(product);
+  const incrementProduct = () => {
     increment(product);
   };
 
-  const handleDecrement = () => {
-    setQuantity(quantity - 1);
-    decrement(product);
-  };
+  const isInCart = (product) => cartItems.find((item) => item.id === product.id);
 
   return (
     <>
@@ -41,14 +35,9 @@ const ProductDetails = ({product}) => {
           </div>
           <p className="old-price">{formatter(product.oldPrice)}</p>
         </div>
-        <div className="quantity">
-          <button onClick={handleDecrement}>-</button>
-          <p>{quantity}</p>
-          <button onClick={handleIncrement}>+</button>
-        </div>
-        <button className="add-to-cart" onClick={handleAdd}>
+        <button className="add-to-cart" onClick={isInCart(product) ? incrementProduct : addProduct}>
           <img alt="Icon Cart" src={iconCart} />
-          <span>Add to cart</span>
+          <span>{isInCart(product) ? "Add more" : "Add to cart"}</span>
         </button>
       </div>
     </>

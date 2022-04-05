@@ -1,9 +1,10 @@
-const storage = (cartItems) => {
-  window.localStorage.setItem("cart", JSON.stringify(cartItems.length > 0 ? cartItems : []));
+const Storage = (cartItems) => {
+  localStorage.setItem("cart", JSON.stringify(cartItems.length > 0 ? cartItems : []));
 };
 
 export const sumItems = (cartItems) => {
-  storage(cartItems);
+  Storage(cartItems);
+
   let itemCount = cartItems.reduce((total, product) => total + product.quantity, 0);
   let total = cartItems
     .reduce((total, product) => total + product.price * product.quantity, 0)
@@ -25,7 +26,7 @@ export const CartReducer = (state, action) => {
 
       return {
         ...state,
-        ...sumItems([...state.cartItems, action.payload]),
+        ...sumItems(state.cartItems),
         cartItems: [...state.cartItems],
       };
 

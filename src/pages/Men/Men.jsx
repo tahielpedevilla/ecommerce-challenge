@@ -1,4 +1,4 @@
-import "./Men.scss";
+import "./Men.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import {useProducts} from "../../hooks/useProducts";
 

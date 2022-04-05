@@ -12,7 +12,7 @@ const Carrousel = ({product}) => {
       <Swiper className="mySwiper" navigation={true}>
         {product.images.map((image, i) => (
           <SwiperSlide key={i}>
-            <img src={image} />
+            <img alt={image} src={image} />
           </SwiperSlide>
         ))}
       </Swiper>
