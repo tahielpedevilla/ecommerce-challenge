@@ -1,12 +1,12 @@
 import "./ProductDetails.scss";
 
 import {useParams} from "react-router-dom";
+import Carrousel from "@components/Carrousel/Carrousel";
+import iconCart from "@assets/icon-cart-white.svg";
 
-import Carrousel from "../../components/Carrousel/Carrousel";
-import iconCart from "../../public/assets/icon-cart-white.svg";
-import {useCart} from "../../hooks/useCart";
-import {formatter} from "../../helpers/utils";
-import {useProducts} from "../../hooks/useProducts";
+import {useCart} from "@/hooks/useCart";
+import {useProducts} from "@/hooks/useProducts";
+import {formatter} from "@/helpers/utils";
 
 const ProductDetails = () => {
   const {id} = useParams();

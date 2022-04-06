@@ -1,14 +1,14 @@
-import {Link} from "react-router-dom";
-
 import "./Navbar.scss";
 
-import {useVisibility} from "../../hooks/useVisibility";
-import iconCart from "../../public/assets/icon-cart.svg";
-import avatar from "../../public/assets/image-avatar.png";
-import logo from "../../public/assets/logo.svg";
-import iconMenu from "../../public/assets/icon-menu.svg";
-import iconClose from "../../public/assets/icon-close.svg";
-import Cart from "../Cart/Cart";
+import {Link} from "react-router-dom";
+import iconCart from "@assets/icon-cart.svg";
+import avatar from "@assets/image-avatar.png";
+import logo from "@assets/logo.svg";
+import iconMenu from "@assets/icon-menu.svg";
+import iconClose from "@assets/icon-close.svg";
+import Cart from "@components/Cart/Cart";
+
+import {useVisibility} from "@/hooks/useVisibility";
 
 const Navbar = () => {
   const cart = useVisibility();

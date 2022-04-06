@@ -1,6 +1,8 @@
 import "./Women.scss";
-import ProductCard from "../../components/ProductCard/ProductCard";
-import {useProducts} from "../../hooks/useProducts";
+
+import ProductCard from "@components/ProductCard/ProductCard";
+
+import {useProducts} from "@/hooks/useProducts";
 
 const Women = () => {
   const {products} = useProducts();

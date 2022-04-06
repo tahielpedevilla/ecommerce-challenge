@@ -1,10 +1,11 @@
 import "./CartItem.scss";
 
-import iconDelete from "../../public/assets/icon-delete-cart.svg";
-import iconMinus from "../../public/assets/icon-minus-cart.svg";
-import iconPlus from "../../public/assets/icon-plus-cart.svg";
-import {useCart} from "../../hooks/useCart";
-import {formatter} from "../../helpers/utils";
+import iconDelete from "@assets/icon-delete-cart.svg";
+import iconMinus from "@assets/icon-minus-cart.svg";
+import iconPlus from "@assets/icon-plus-cart.svg";
+
+import {formatter} from "@/helpers/utils";
+import {useCart} from "@/hooks/useCart";
 
 const CartItem = ({product}) => {
   const {remove, increment, decrement} = useCart();

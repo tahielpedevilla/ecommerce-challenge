@@ -1,7 +1,8 @@
-import "./Cart.css";
+import "./Cart.scss";
 
-import CartItem from "../CartItem/CartItem";
-import {useCart} from "../../hooks/useCart";
+import CartItem from "@components/CartItem/CartItem";
+
+import {useCart} from "@/hooks/useCart";
 
 const Cart = () => {
   const {cartItems, handleCheckout, total, itemCount} = useCart();

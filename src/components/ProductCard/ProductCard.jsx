@@ -1,8 +1,8 @@
-import "./ProductCard.css";
+import "./ProductCard.scss";
 import {Link} from "react-router-dom";
 
-import {useCart} from "../../hooks/useCart";
-import {formatter, urlFormatter} from "../../helpers/utils";
+import {formatter, urlFormatter} from "@/helpers/utils";
+import {useCart} from "@/hooks/useCart";
 
 const ProductCard = ({product}) => {
   const {add, increment, cartItems} = useCart();
