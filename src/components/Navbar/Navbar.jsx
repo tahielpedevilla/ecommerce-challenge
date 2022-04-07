@@ -9,10 +9,12 @@ import iconClose from "@assets/icon-close.svg";
 import Cart from "@components/Cart/Cart";
 
 import {useVisibility} from "@/hooks/useVisibility";
+import {useCart} from "@/hooks/useCart";
 
 const Navbar = () => {
   const cart = useVisibility();
   const sidebar = useVisibility();
+  const {itemCount} = useCart();
 
   return (
     <>
@@ -62,6 +64,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="right">
+          <span className="icon-cart-quantity">{itemCount}</span>
           <img alt="Cart" src={iconCart} onClick={cart.toggleVisibility} />
           <img alt="My Profile" className="avatar" src={avatar} />
         </div>

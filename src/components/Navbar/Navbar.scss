@@ -39,10 +39,6 @@ $lighGrayishBlue: hsl(223, 64%, 98%);
         color: #333;
         font-weight: 700;
         padding: 10px 10px;
-
-        &:hover {
-          // color: #fff;
-        }
       }
     }
   }
@@ -86,6 +82,22 @@ header {
     justify-content: center;
     align-items: center;
     gap: 15px;
+
+    .icon-cart-quantity {
+      background-color: #ff7d1a;
+      color: #fff;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 8px;
+      font-weight: 700;
+      position: relative;
+      right: -43px;
+      top: -8px;
+    }
 
     .avatar {
       width: 25px;
