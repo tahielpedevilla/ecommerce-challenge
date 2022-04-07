@@ -64,7 +64,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="right">
-          <span className="icon-cart-quantity">{itemCount}</span>
+          {itemCount > 0 && <span className="icon-cart-quantity">{itemCount}</span>}
           <img alt="Cart" src={iconCart} onClick={cart.toggleVisibility} />
           <img alt="My Profile" className="avatar" src={avatar} />
         </div>
