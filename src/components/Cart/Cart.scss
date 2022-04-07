@@ -32,7 +32,7 @@ $lighGrayishBlue: hsl(223, 64%, 98%);
 
     .cart-items-wrapper {
       max-height: 400px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     .empty {
