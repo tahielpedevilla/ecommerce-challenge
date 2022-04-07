@@ -18,13 +18,14 @@ const Cart = () => {
         <div className="cart">
           <p className="title">Cart</p>
           <div className="divider" />
-          {cartItems.length > 0 && (
+          {cartItems.length > 0 ? (
             <>
               <div className="cart-items-wrapper">
                 {cartItems.map((product, i) => (
                   <CartItem key={i} product={product} />
                 ))}
               </div>
+              <div className="divider" />
               <p className="summary">Total: {formatter(total)}</p>
               <div className="checkout">
                 <button className="btn-checkout" onClick={handleCheckoutClick}>
@@ -32,8 +33,7 @@ const Cart = () => {
                 </button>
               </div>
             </>
-          )}
-          {cartItems.length === 0 && (
+          ) : (
             <div className="empty">
               <p>Your cart is empty</p>
             </div>

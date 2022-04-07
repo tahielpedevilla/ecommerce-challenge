@@ -2,7 +2,7 @@ const mock = [
   {
     id: 1,
     category: "Men",
-    model: "Fall Limited Edition Snakers",
+    model: "Fall Limited Edition Sneakers",
     brand: "Snaker Company",
     description:
       "These low-profile, high-heel shoes are perfect for a night on the town. They're made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -26,7 +26,7 @@ const mock = [
   {
     id: 2,
     category: "Men",
-    model: "Summer Limited Edition Snakers",
+    model: "Summer Limited Edition Sneakers",
     brand: "Lucky Snaker Company",
     description:
       "Like the fall edition, these high-heel shoes are made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -50,7 +50,7 @@ const mock = [
   {
     id: 3,
     category: "Men",
-    model: "Summer Limited Edition Snakers",
+    model: "Summer Limited Edition Sneakers",
     brand: "Lucky Snaker Company",
     description:
       "Like the fall edition, these high-heel shoes are made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -74,7 +74,7 @@ const mock = [
   {
     id: 4,
     category: "Men",
-    model: "Summer Limited Edition Snakers",
+    model: "Summer Limited Edition Sneakers",
     brand: "Lucky Snaker Company",
     description:
       "Like the fall edition, these high-heel shoes are made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -98,7 +98,7 @@ const mock = [
   {
     id: 5,
     category: "Women",
-    model: "Fall Limited Edition Snakers",
+    model: "Fall Limited Edition Sneakers",
     brand: "Snaker Company",
     description:
       "These low-profile, high-heel shoes are perfect for a night on the town. They're made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -122,7 +122,7 @@ const mock = [
   {
     id: 6,
     category: "Women",
-    model: "Summer Limited Edition Snakers",
+    model: "Summer Limited Edition Sneakers",
     brand: "Lucky Snaker Company",
     description:
       "Like the fall edition, these high-heel shoes are made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -146,7 +146,7 @@ const mock = [
   {
     id: 7,
     category: "Women",
-    model: "Summer Limited Edition Snakers",
+    model: "Summer Limited Edition Sneakers",
     brand: "Lucky Snaker Company",
     description:
       "Like the fall edition, these high-heel shoes are made of a thick, durable leather and have a classic design that's easy to slip on.",
@@ -170,7 +170,7 @@ const mock = [
   {
     id: 8,
     category: "Women",
-    model: "Summer Limited Edition Snakers",
+    model: "Summer Limited Edition Sneakers",
     brand: "Lucky Snaker Company",
     description:
       "Like the fall edition, these high-heel shoes are made of a thick, durable leather and have a classic design that's easy to slip on.",

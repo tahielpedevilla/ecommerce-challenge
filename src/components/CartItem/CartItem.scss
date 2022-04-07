@@ -11,6 +11,10 @@ $lighGrayishBlue: hsl(223, 64%, 98%);
   padding: 20px;
   border-bottom: 1px solid #e7e7e7;
 
+  &:last-child {
+    border-bottom: none;
+  }
+
   .left {
     display: flex;
     flex-direction: row;
