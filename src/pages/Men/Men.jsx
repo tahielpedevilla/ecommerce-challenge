@@ -6,6 +6,7 @@ import {useProducts} from "@/hooks/useProducts";
 
 const Men = () => {
   const {products} = useProducts();
+
   const filteredProducts = products.filter((product) => product.category === "Men");
 
   return (
