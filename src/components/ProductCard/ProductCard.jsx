@@ -14,7 +14,7 @@ const ProductCard = ({product}) => {
   return (
     <div className="card">
       <div className="image">
-        <img alt={product.model} src={product.images[0]} />
+        <img alt={product.model} loading="lazy" src={product.images[0]} />
       </div>
       <div className="details">
         <div className="card-header">
@@ -22,9 +22,11 @@ const ProductCard = ({product}) => {
           <div className="price-container">
             <div className="row-price">
               <p className="details-card-currentPrice">{formatter(product.price)}</p>
-              <p className="details-card-off">{product.off + "%"}</p>
+              {product.off === 0 ? null : <p className="details-card-off">{product.off + "%"}</p>}
             </div>
-            <p className="details-card-oldPrice">{formatter(product.oldPrice)}</p>
+            {product.off === 0 ? null : (
+              <p className="details-card-oldPrice">{formatter(product.oldPrice)}</p>
+            )}
           </div>
         </div>
         <div className="buttons">
