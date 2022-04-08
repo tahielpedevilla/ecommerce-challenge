@@ -12,5 +12,7 @@ export default defineConfig({
       {find: "@assets", replacement: path.resolve(__dirname, "./src/public")},
     ],
   },
-  include: [path.resolve(__dirname, "./src")],
+  server: {
+    host: true,
+  },
 });
