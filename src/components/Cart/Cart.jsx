@@ -8,9 +8,7 @@ import {formatter} from "@/helpers/utils";
 const Cart = () => {
   const {cartItems, handleCheckout, total} = useCart();
 
-  const handleCheckoutClick = () => {
-    handleCheckout();
-  };
+  const handleCheckoutClick = () => handleCheckout();
 
   return (
     <>

@@ -1,62 +1,59 @@
-import "./Navbar.scss";
-
+import {useState} from "react";
 import {Link} from "react-router-dom";
+import logo from "@assets/logo.svg";
+import Cart from "@components/Cart/Cart";
 import iconCart from "@assets/icon-cart.svg";
 import avatar from "@assets/image-avatar.png";
-import logo from "@assets/logo.svg";
 import iconMenu from "@assets/icon-menu.svg";
 import iconClose from "@assets/icon-close.svg";
-import Cart from "@components/Cart/Cart";
 
-import {useVisibility} from "@/hooks/useVisibility";
 import {useCart} from "@/hooks/useCart";
+import "./Navbar.scss";
 
 const Navbar = () => {
-  const cart = useVisibility();
-  const sidebar = useVisibility();
+  const [cart, setCart] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+
+  const showCart = () => setCart(!cart);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
   const {itemCount} = useCart();
 
   return (
     <>
-      {cart.isVisible && <Cart />}
-      {sidebar.isVisible && (
-        <div className="sidebar" id="sidebar">
-          <div className="sidebar-menu">
-            <div className="close-icon" onClick={sidebar.toggleVisibility}>
-              <img alt="Close Menu" src={iconClose} />
-            </div>
-            <div className="sidebar-menu-item">
-              <Link to="/collections" onClick={sidebar.toggleVisibility}>
-                Collections
-              </Link>
-            </div>
-            <div className="sidebar-menu-item">
-              <Link to="/men" onClick={sidebar.toggleVisibility}>
-                Men
-              </Link>
-            </div>
-            <div className="sidebar-menu-item">
-              <Link to="/women" onClick={sidebar.toggleVisibility}>
-                Women
-              </Link>
-            </div>
-            <div className="sidebar-menu-item">
-              <Link to="/about" onClick={sidebar.toggleVisibility}>
-                About
-              </Link>
-            </div>
-            <div className="sidebar-menu-item">
-              <Link to="/contact" onClick={sidebar.toggleVisibility}>
-                Contact
-              </Link>
-            </div>
-          </div>
-          <div className="backdrop" />
-        </div>
-      )}
+      {cart && <Cart />}
+      {sidebar && <div className="backdrop" onClick={showSidebar} />}
+      <nav className={sidebar === true ? "sidebar active" : "sidebar"}>
+        <ul className="sidebar-menu">
+          <li className="close-icon" onClick={showSidebar}>
+            <img alt="Close Menu" src={iconClose} />
+          </li>
+          <li className="sidebar-menu-item">
+            <Link to="/collections" onClick={showSidebar}>
+              Collections
+            </Link>
+          </li>
+          <li className="sidebar-menu-item">
+            <Link to="/men" onClick={showSidebar}>
+              Men
+            </Link>
+          </li>
+          <li className="sidebar-menu-item">
+            <Link to="/women" onClick={showSidebar}>
+              Women
+            </Link>
+          </li>
+          <li className="sidebar-menu-item">
+            <Link to="/about" onClick={showSidebar}>
+              About
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <header>
         <div className="left">
-          <div className="sidebar-toggle" data-toggle="sidebar" onClick={sidebar.toggleVisibility}>
+          <div className="sidebar-toggle" onClick={showSidebar}>
             <img alt="Icon Menu" src={iconMenu} />
           </div>
           <Link className="logo" to="/">
@@ -64,8 +61,12 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="right">
-          {itemCount > 0 && <span className="icon-cart-quantity">{itemCount}</span>}
-          <img alt="Cart" src={iconCart} onClick={cart.toggleVisibility} />
+          {itemCount > 0 && (
+            <span className="icon-cart-quantity" onClick={showCart}>
+              {itemCount}
+            </span>
+          )}
+          <img alt="Cart" className="cart-icon" src={iconCart} onClick={showCart} />
           <img alt="My Profile" className="avatar" src={avatar} />
         </div>
       </header>
